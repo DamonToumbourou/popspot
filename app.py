@@ -1,18 +1,16 @@
-# -*- coding: utf-8 -*-#enoding: utf-8 -*-
-from flask import Flask, render_template, url_for, g, redirect, request, flash
+# under normal circumstances, this script would not be necessary. the
+# sample_application would have its own setup.py and be properly installed;
+# however since it is not bundled in the sdist package, we need some hacks
+# to make it work
 
-application = app = Flask(__name__)
+import os
+import sys
 
+sys.path.append(os.path.dirname(__name__))
 
-# ---------------------------------------------------------------------------------
-#   Page Routes
-# -------------------------------------------------------------------------------*/
+from sample_application import create_app
 
-@app.route('/', methods=['GET', 'POST'])
-def home():
+# create an app instance
+app = create_app()
 
-    return render_template('home.html')
-
-
-if __name__ == "__main__":
-    application.run(debug=True)
+app.run(debug=True)
