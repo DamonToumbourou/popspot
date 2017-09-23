@@ -1,0 +1,35 @@
+*.pyc
+*.pyq
+*.pyo
+.*.swp
+.*.swo
+.env
+.DS_Store
+nohup.out
+private.py
+
+.idea/MatchMaker.iml
+
+.idea/misc.xml
+
+.idea/modules.xml
+
+.idea/vcs.xml
+
+.idea/workspace.xml
+
+.data/app.db
+
+data/*
+
+.*.db
+
+*.db
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml>>>>>> 59146481d2764829518ce5ddadf62472edf2a6a4
+
+.idea/inspectionProfiles/Project_Default.xml
+.idea/popspot.iml
