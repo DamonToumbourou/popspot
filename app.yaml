@@ -1,19 +1,9 @@
-runtime: python27
-api_version: 1
-threadsafe: true
+runtime: python
+env: flex
+entrypoint: gunicorn -b :$PORT main:app
 
+runtime_config:
+    python_version: 2.7
 
-# [START handlers]
-handlers:
-- url: /static/adminlte
-  static_files: ./flask_adminlte/static/(.*)/(.*)/(.*)/(.*)
-  upload: ./flask_adminlte/static//(.*)/(.*)/(.*)/(.*)
-  
-- url: /static
-  static_files: ./static/(.*)/(.*)/(.*)/(.*)
-  upload: ./static/(.*)/(.*)/(.*)/(.*)
-  
-- url: /.*
-  script: main.app
-
-# [END handlers]
+env_variables:
+    CLOUD_STORAGE_BUCKET: s3462344-a1-lt11.appspot.com
