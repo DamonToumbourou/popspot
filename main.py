@@ -28,7 +28,7 @@ def index():
 
     vision_client = vision.Client()
     
-    file_name = 'cat.jpg'
+    file_name = 'cat.jpeg'
     with io.open(file_name, 'rb') as image_file:
         content = image_file.read()
         image = vision_client.image(content=content)
