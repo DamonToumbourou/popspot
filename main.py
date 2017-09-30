@@ -1,7 +1,10 @@
+from google.cloud import vision
 import dateutil.parser
 
 from flask import Flask, render_template
 from flask_adminlte import AdminLTE
+
+import io
 
 class User(object):
     """
@@ -21,6 +24,22 @@ current_user = User()
 
 @app.route('/')
 def index():
+    print " --- START ---"
+
+    vision_client = vision.Client()
+    
+    file_name = 'cat.jpg'
+    with io.open(file_name, 'rb') as image_file:
+        content = image_file.read()
+        image = vision_client.image(content=content)
+
+    labels = image.detect_labels()
+    for label in labels:
+        print '1: '
+        print(label.description)
+
+
+
     return render_template('index.html', current_user=current_user)
 
 @app.route('/login')
@@ -30,7 +49,6 @@ def login():
 @app.route('/lockscreen')
 def lockscreen():
     return render_template('lockscreen.html', current_user=current_user)
-
 
 
 

@@ -1,6 +1,8 @@
 runtime: python27
 api_version: 1
 threadsafe: true
+skip_files:
+- ^(.*/)?\.pyc$
 
 # [START handlers]
 handlers:
@@ -14,4 +16,5 @@ handlers:
   
 - url: /.*
   script: main.app
+
 # [END handlers]

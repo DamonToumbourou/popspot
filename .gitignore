@@ -33,3 +33,5 @@ data/*
 
 .idea/inspectionProfiles/Project_Default.xml
 .idea/popspot.iml
+
+apiKey.json
