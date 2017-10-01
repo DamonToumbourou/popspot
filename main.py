@@ -1,12 +1,8 @@
-
 from flask import Flask, render_template
 from flask_adminlte import AdminLTE
-from google.cloud import bigquery
 import dateutil.parser
-import uuid
 import io
-
-
+from bigquery import BigQuery
 
 class User(object):
     """
@@ -27,28 +23,17 @@ current_user = User()
 @app.route('/')
 def index():
     print " --- START ---"
-    client = bigquery.Client()
-    query_job = client.run_async_query(str(uuid.uuid4()), """
-    #standardSQL
-    SELECT corpus AS title, COUNT(*) AS unique_words
-    FROM `publicdata.samples.shakespeare`
-    GROUP BY title
-    ORDER BY unique_words DESC
-    LIMIT 10""")
-
-    query_job.begin()
-    query_job.result()  # Wait for job to complete.
-
-    destination_table = query_job.destination
-    destination_table.reload()
-    for row in destination_table.fetch_data():
-        print(row)
+    query = BigQuery().most_popular()
+    print 'most pop'
+    print query
 
     return render_template('index.html', current_user=current_user)
+
 
 @app.route('/login')
 def login():
     return render_template('login.html', current_user=current_user)
+
 
 @app.route('/lockscreen')
 def lockscreen():
