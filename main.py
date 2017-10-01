@@ -1,11 +1,12 @@
-from google.cloud import vision
-import dateutil.parser
-
 
 from flask import Flask, render_template
 from flask_adminlte import AdminLTE
-
+from google.cloud import bigquery
+import dateutil.parser
+import uuid
 import io
+
+
 
 class User(object):
     """
@@ -26,20 +27,22 @@ current_user = User()
 @app.route('/')
 def index():
     print " --- START ---"
+    client = bigquery.Client()
+    query_job = client.run_async_query(str(uuid.uuid4()), """
+    #standardSQL
+    SELECT corpus AS title, COUNT(*) AS unique_words
+    FROM `publicdata.samples.shakespeare`
+    GROUP BY title
+    ORDER BY unique_words DESC
+    LIMIT 10""")
 
-    vision_client = vision.Client()
-    
-    file_name = 'cat.jpeg'
-    with io.open(file_name, 'rb') as image_file:
-        content = image_file.read()
-        image = vision_client.image(content=content)
+    query_job.begin()
+    query_job.result()  # Wait for job to complete.
 
-    labels = image.detect_labels()
-    for label in labels:
-        print '1: '
-        print(label.description)
-
-
+    destination_table = query_job.destination
+    destination_table.reload()
+    for row in destination_table.fetch_data():
+        print(row)
 
     return render_template('index.html', current_user=current_user)
 
@@ -55,6 +58,6 @@ def lockscreen():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
 
 
