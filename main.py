@@ -4,6 +4,7 @@ import dateutil.parser
 import io
 from bigquery import BigQuery
 
+
 class User(object):
     """
     Example User object.  Based loosely off of Flask-Login's User model.
@@ -20,12 +21,13 @@ AdminLTE(app)
 # probably get populated via ... something.
 current_user = User()
 
+
 @app.route('/')
 def index():
     print " --- START ---"
-    query = BigQuery().most_popular()
-    print 'most pop'
-    print query
+    #query = BigQuery().most_popular()
+    #print 'most pop'
+    #print query
 
     return render_template('index.html', current_user=current_user)
 

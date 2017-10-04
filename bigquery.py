@@ -8,7 +8,7 @@ class BigQuery(object):
         query_job = client.run_async_query(str(uuid.uuid4()), """
         #standardSQL
         SELECT ID, Sensor_Name
-        FROM `s3462344-a1-lt11.ped_data.ped_data`
+        FROM `s3462344-a1-lt11.ped_data.ped_data_small`
         LIMIT 5   
         """)
 
