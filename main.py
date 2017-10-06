@@ -5,7 +5,6 @@ from flask import Flask, render_template
 from flask_adminlte import AdminLTE
 import dateutil.parser
 import io
-from flask_mysqldb import MySQL
 # from bigquery import BigQuery
 
 
@@ -16,9 +15,6 @@ from flask_mysqldb import MySQL
 # Application
 app = Flask(__name__)
 AdminLTE(app)
-
-# mySQL
-mysql = MySQL(app)
 
 
 # ---------------------------------------------------------------------------------
