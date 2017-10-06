@@ -5,7 +5,6 @@ from flask import Flask, render_template
 from flask_adminlte import AdminLTE
 import dateutil.parser
 import io
-from flask_mysqldb import MySQL
 # from bigquery import BigQuery
 
 
@@ -17,9 +16,6 @@ from flask_mysqldb import MySQL
 app = Flask(__name__)
 AdminLTE(app)
 
-# mySQL
-mysql = MySQL(app)
-
 
 # ---------------------------------------------------------------------------------
 #   Routes
@@ -30,8 +26,6 @@ def index():
     #query = BigQuery().most_popular()
     #print 'most pop'
     #print query
-
-    cursor = mysql.connection.cursor()
 
     return render_template('index.html')
 
