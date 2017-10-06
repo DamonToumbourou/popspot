@@ -6,76 +6,74 @@
 
 {%- endblock navbar %}
 {% block sidebar -%}
-        <!-- sidebar: style can be found in sidebar.less -->
-        <!-- sidebar menu: : style can be found in sidebar.less -->
-          <div class="user-panel">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <div class="user-panel">
 
-          </div>
-          <ul class="sidebar-menu">
-          <li class="header">OPTIONS</li>
-            <li class="active">
-              <a href="{{ url_for('index') }}">
+    </div>
+    <ul class="sidebar-menu">
+        <li class="header">OPTIONS</li>
+        <li class="active">
+            <a href="{{ url_for('index') }}">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-              </a>
-            </li>
-          </ul>
-        <!-- /.sidebar -->
+            </a>
+        </li>
+    </ul>
+    <!-- /.sidebar -->
 {%- endblock sidebar %}
 {% block content_header -%}
-          <h1>
-            Melbourne Pedestrian Statistics
-            <small>Melbourne City Council Pedestrian Data Set</small>
-          </h1>
+    <h1>
+        Melbourne Pedestrian Statistics
+        <small>Melbourne City Council Pedestrian Data Set</small>
+    </h1>
 
 {%- endblock content_header %}
 {% block content -%}
-          <!--
-          <h4 class="page-header">
-            Most Popular Spot Overall
-            <small>2017 most popular </small>
-          </h4>
-          -->
-          <!-- Small boxes (Stat box) -->
-          <div class="row">
+    <!--
+    <h4 class="page-header">
+      Most Popular Spot Overall
+      <small>2017 most popular </small>
+    </h4>
+    -->
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
 
-            {{
-              widgets.small_box(
+        {{ widgets.small_box(
                 bgcolor="bg-aqua",
                 header=most_pop_overall[0].count,
                 body="Most Pedestrians for 2017: " + most_pop_overall[0].sensor_name,
                 footerlink="#"
-              )
-            }}
+              ) }}
 
-            {{
-              widgets.small_box(
+        {{ widgets.small_box(
                 bgcolor="bg-green",
                 header=most_pop_day[0].count,
                 body="Most Popular Day: " + most_pop_day[0].day,
                 footerlink="#"
-              )
-            }}
+              ) }}
 
-            {{
-              widgets.small_box(
+        {{ widgets.small_box(
                 bgcolor="bg-yellow",
                 header=most_pop_time[0].count,
                 body="Most Popular Time: " + most_pop_time[0].time,
 
                 footerlink="#"
-              )
-            }}
+              ) }}
 
-            {{
-              widgets.small_box(
+        {{ widgets.small_box(
                 bgcolor="bg-red",
                 header=most_pop_time[0].count,
                 body="Most Popular Month: " + most_pop_month[0].month,
 
                 footerlink="#"
-              )
-            }}
+              ) }}
 
-          </div><!-- /.row -->
+    </div><!-- /.row -->
+
+
+
+    <h1>Word Map</h1>
+    <img src="../static/img/wordcloud.png">
+
 
 {%- endblock content %}
