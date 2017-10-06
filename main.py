@@ -33,6 +33,7 @@ def index():
     most_pop_month = query.most_popular_month()
     most_pop_time = query.most_popular_time()
 
+    """
     # ----------------------
     #   Word Cloud
     # --------------------*/
@@ -69,7 +70,7 @@ def index():
 
     # save to image file
     wordcloud.to_file('static/img/wordcloud.png')
-
+    """
 
     return render_template('index.html', most_pop_overall=most_pop_overall, most_pop_day=most_pop_day,
                            most_pop_month=most_pop_month, most_pop_time=most_pop_time)
