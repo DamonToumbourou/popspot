@@ -41,8 +41,8 @@
             {{
               widgets.small_box(
                 bgcolor="bg-aqua",
-                header=most_pop[0].count,
-                body="Most Pedestrians for 2017: " + most_pop[0].sensor_name,
+                header=most_pop_overall[0].count,
+                body="Most Pedestrians for 2017: " + most_pop_overall[0].sensor_name,
                 footerlink="#"
               )
             }}
@@ -50,9 +50,8 @@
             {{
               widgets.small_box(
                 bgcolor="bg-green",
-                header=53,
-                body="Bounce Rate",
-                iconclass="ion ion-stats-bars",
+                header=most_pop_day[0].count,
+                body="Most Popular Day: " + most_pop_day[0].day,
                 footerlink="#"
               )
             }}
@@ -60,9 +59,9 @@
             {{
               widgets.small_box(
                 bgcolor="bg-yellow",
-                header=43,
-                body="User Registrations",
-                iconclass="ion ion-person-add",
+                header=most_pop_time[0].count,
+                body="Most Popular Time: " + most_pop_time[0].time,
+
                 footerlink="#"
               )
             }}
@@ -70,9 +69,9 @@
             {{
               widgets.small_box(
                 bgcolor="bg-red",
-                header=65,
-                body="Unique Visitors",
-                iconclass="ion ion-pie-graph",
+                header=most_pop_time[0].count,
+                body="Most Popular Month: " + most_pop_month[0].month,
+
                 footerlink="#"
               )
             }}

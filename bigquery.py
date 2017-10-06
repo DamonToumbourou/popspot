@@ -71,8 +71,8 @@ class BigQuery(object):
 
         most_pop_day = []
         pop = {
-                'sensor_name': 'Southbank',
-                'count': 12712712,
+                'sensor_name': 'Flinders St',
+                'count': 32009,
                 'day': 'Sunday'
             }
         most_pop_day.append(pop)
@@ -109,8 +109,8 @@ class BigQuery(object):
         most_pop_time = []
         pop = {
                 'sensor_name': 'Southbank',
-                'count': 12712712,
-                'day': 'Sunday'
+                'count': 7123,
+                'time': '9:00 AM'
             }
         most_pop_time.append(pop)
 
@@ -145,9 +145,9 @@ class BigQuery(object):
 
         most_pop_month = []
         pop = {
-                'sensor_name': 'Southbank',
-                'count': 12712712,
-                'day': 'Sunday'
+                'sensor_name': 'Melbourne Central',
+                'count': 65363,
+                'month': 'December'
             }
         most_pop_month.append(pop)
 
