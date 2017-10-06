@@ -57,7 +57,7 @@ class MapData(object):
                         data[0],
                         avg['count'],
                         data[1],
-                        data[2]
+                        data[2],
                     ])
 
         return new_location_data
