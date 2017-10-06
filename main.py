@@ -31,7 +31,7 @@ def index():
     #print 'most pop'
     #print query
 
-    cursor = mysql.connection.cursor()
+    #cursor = mysql.connection.cursor()
 
     return render_template('index.html')
 
