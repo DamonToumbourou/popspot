@@ -8,6 +8,7 @@ import dateutil.parser
 import io
 from os import path
 from wordcloud import WordCloud
+from PIL import Image
 from bigquery import BigQuery
 
 
