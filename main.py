@@ -21,6 +21,17 @@ AdminLTE(app)
 
 
 
+
+
+# ---------------------------------------------------------------------------------
+#   Global Functions
+# -------------------------------------------------------------------------------*/
+
+# wordmap colour function
+def white_color_func(word, font_size, position, orientation, random_state=None, **kwargs):
+    return "hsl(360, 100%, 100%)"
+
+
 # ---------------------------------------------------------------------------------
 #   Page Routes
 # -------------------------------------------------------------------------------*/
@@ -33,28 +44,26 @@ def index():
     most_pop_month = query.most_popular_month()
     most_pop_time = query.most_popular_time()
 
-
     # ----------------------
     #   Word Cloud
     # --------------------*/
     # pedestrian counts for each location
-    frequencies = {'Southern Cross': 2000000, 'Flinders Street': 100000, 'Southbank': 15000, 'Kings St': 63202 }
+    frequencies = {'SOUTHERN CROSS': 2000000, 'FLINDERS STREET': 100000, 'SOUTH BANK': 15000, 'KINGS ST': 63202 }
 
     # create word cloud
-    wordcloud = WordCloud(width=900,
+    wordcloud = WordCloud(width=1856,
                           height=600,
-                          min_font_size=4,
+                          font_path='./static/fonts/Oxygen/Oxygen-Bold.ttf',
+                          min_font_size=5,
                           background_color=None,
-                          mode='RGBA').generate_from_frequencies(frequencies, 70)
+                          color_func=white_color_func,
+                          ).generate_from_frequencies(frequencies, 100)
 
     # save to image file
     wordcloud.to_file('static/img/wordcloud.png')
 
-
     return render_template('index.html', most_pop_overall=most_pop_overall, most_pop_day=most_pop_day,
                            most_pop_month=most_pop_month, most_pop_time=most_pop_time)
-
-
 
 
 if __name__ == '__main__':
