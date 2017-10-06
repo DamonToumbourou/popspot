@@ -3,9 +3,11 @@
 # -------------------------------------------------------------------------------*/
 from flask import Flask, render_template
 from flask_adminlte import AdminLTE
+from bigquery import BigQuery
 import dateutil.parser
 import io
-from bigquery import BigQuery
+import geoplotlib
+import geoplot
 
 
 # ---------------------------------------------------------------------------------
@@ -15,6 +17,7 @@ from bigquery import BigQuery
 # Application
 app = Flask(__name__)
 AdminLTE(app)
+
 
 
 # ---------------------------------------------------------------------------------
@@ -30,6 +33,7 @@ def index():
     most_pop_time = query.most_popular_time()
 
     #cursor = mysql.connection.cursor()
+
 
 
     return render_template('index.html', most_pop_overall=most_pop_overall, most_pop_day=most_pop_day,
