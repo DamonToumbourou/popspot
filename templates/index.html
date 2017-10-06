@@ -29,19 +29,20 @@
 
 {%- endblock content_header %}
 {% block content -%}
+          <!--
           <h4 class="page-header">
             Most Popular Spot Overall
             <small>2017 most popular </small>
           </h4>
+          -->
           <!-- Small boxes (Stat box) -->
           <div class="row">
 
             {{
               widgets.small_box(
                 bgcolor="bg-aqua",
-                header=150,
-                body="New Orders",
-                iconclass="ion ion-bag",
+                header=most_pop[0].count,
+                body="Most Pedestrians for 2017: " + most_pop[0].sensor_name,
                 footerlink="#"
               )
             }}

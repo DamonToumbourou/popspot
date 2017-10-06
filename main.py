@@ -5,7 +5,7 @@ from flask import Flask, render_template
 from flask_adminlte import AdminLTE
 import dateutil.parser
 import io
-# from bigquery import BigQuery
+from bigquery import BigQuery
 
 
 # ---------------------------------------------------------------------------------
@@ -23,16 +23,15 @@ AdminLTE(app)
 @app.route('/')
 def index():
     print " --- START ---"
-    #query = BigQuery().most_popular()
-    #print 'most pop'
-    #print query
+    most_pop = BigQuery().most_popular_overall()
 
     #cursor = mysql.connection.cursor()
 
-    return render_template('index.html')
+
+    return render_template('index.html', most_pop=most_pop)
+
+
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
