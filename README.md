@@ -1,12 +1,16 @@
 ------------------
-#   POPSPOT      #
+#   PoPSpot      #
 -------------------
-Making Australian Overseas Arrivals & Departures Data Beautiful
+A website for City of Melbourne Pedestrian Traffic data
 
 Members:
 ------------------
 Ben Diep - s3462344
 Damon Toumbourou - s3019592
+
+Project Link:
+------------------
+https://s3462344-a1-lt11.appspot.com
 
 Get up and running:
 ---------------------
