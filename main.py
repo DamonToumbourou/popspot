@@ -67,6 +67,7 @@ def index():
     # save to image file
     wordcloud.to_file('static/img/wordcloud.png')
     """
+
     # -----------------------------------------------------------
     #   Fetch Data for Google Map using Melbourne City Data API
     # ---------------------------------------------------------*/
