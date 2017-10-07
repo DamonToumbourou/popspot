@@ -8,8 +8,8 @@ import dateutil.parser
 import io
 import map_data
 from os import path
-from wordcloud import WordCloud
-from PIL import Image
+#from wordcloud import WordCloud
+#from PIL import Image
 from bigquery import BigQuery
 
 
@@ -55,17 +55,17 @@ def index():
     # pedestrian counts for each location
     frequencies = {'SOUTHERN CROSS': 2000000, 'FLINDERS STREET': 100000, 'SOUTH BANK': 15000, 'KINGS ST': 63202 }
 
-    # create word cloud
-    wordcloud = WordCloud(width=1856,
-                          height=600,
-                          font_path='./static/fonts/Oxygen/Oxygen-Bold.ttf',
-                          min_font_size=5,
-                          background_color=None,
-                          color_func=white_color_func,
-                          ).generate_from_frequencies(frequencies, 100)
-
-    # save to image file
-    wordcloud.to_file('static/img/wordcloud.png')
+#    # create word cloud
+#    wordcloud = WordCloud(width=1856,
+#                          height=600,
+#                          font_path='./static/fonts/Oxygen/Oxygen-Bold.ttf',
+#                          min_font_size=5,
+#                          background_color=None,
+#                          color_func=white_color_func,
+#                          ).generate_from_frequencies(frequencies, 100)
+#
+#    # save to image file
+#    wordcloud.to_file('static/img/wordcloud.png')
 
     # -----------------------------------------------------------
     #   Fetch Data for Google Map using Melbourne City Data API
