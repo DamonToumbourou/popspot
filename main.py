@@ -56,17 +56,17 @@ def index():
     for location in avg_daily_traffic:
         frequencies[location[0]] = int(location[1])
 
-    # create word cloud
-    wordcloud = WordCloud(width=1856,
-                          height=600,
-                          font_path='./static/fonts/Oxygen/Oxygen-Bold.ttf',
-                          min_font_size=5,
-                          background_color=None,
-                          color_func=white_color_func,
-                          ).generate_from_frequencies(frequencies, 100)
-
-    # save to image file
-    wordcloud.to_file('static/img/wordcloud.png')
+    # # create word cloud
+    # wordcloud = WordCloud(width=1856,
+    #                       height=600,
+    #                       font_path='./static/fonts/Oxygen/Oxygen-Bold.ttf',
+    #                       min_font_size=5,
+    #                       background_color=None,
+    #                       color_func=white_color_func,
+    #                       ).generate_from_frequencies(frequencies, 100)
+    #
+    # # save to image file
+    # wordcloud.to_file('static/img/wordcloud.png')
 
     return render_template('index.html', most_pop_overall=most_pop_overall, most_pop_day=most_pop_day,
                            most_pop_month=most_pop_month, most_pop_time=most_pop_time, avg_daily_traffic=avg_daily_traffic)
