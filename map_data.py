@@ -1,7 +1,7 @@
 from sodapy import Socrata
 import csv
-import sys
 import bigquery
+
 
 class MapData(object):
 
@@ -39,7 +39,8 @@ class MapData(object):
     def get_average_daily_traffic(self):
 
         location_data = []
-        f = open('static/location_data.csv', 'rt')
+        f = open('location_data.csv', 'rt')
+
         try:
             reader = csv.reader(f)
             for row in reader:
